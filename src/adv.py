@@ -98,8 +98,7 @@ while direction == 0:
                 player_position = Player (room['treasure'].s_to, user_initialize)
                 print("You are in the", player_position.room)
                 direction = 0
-
-        # user chooses Est
+        #user chooses Est
         elif direction == "3" and player_position == Player (room['foyer'], user_initialize):
             player_position = Player (room['foyer'].e_to, user_initialize)
             print("You are in the", player_position.room)
@@ -114,5 +113,4 @@ while direction == 0:
         else:
             print("Oh dear, you have hit a wall! Invalid selection. Please try again.")
             direction = 0
-            
         print("Please choose to continue...")
