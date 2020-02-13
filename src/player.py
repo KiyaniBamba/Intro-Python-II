@@ -3,18 +3,17 @@
 
 class Player:
     # constructor
-    def __init__(self, room, character, attributes):
+    def __init__(self, room, character):
         # attributes (room, name character)
         self.room = room
         self.character = character
-        self.attributes = attributes
     def __str__(self):
         output = ''
-        output += self.character + ' is in the ' +  self.room + ' room.'
+        output = f'our hero is in the {self.room} room.'
         return output
 
 
-p = Player("Outside Cave Entrance", "Lorenzo", ["Man", "Black hair", "19 years old"])
+p = Player("Outside Cave Entrance", "Lorenzo")
 
 # print(p)
     

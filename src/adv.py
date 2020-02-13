@@ -44,13 +44,16 @@ from player import Player
 
 #initialize user
 user_initialize = input ("Welcome on Adventure Game! \nTo start, enter the name of your character: ")
-p = Player('outside', user_initialize, ['Man', 'Black hair', '19 years old'])
+player_position = Player (room['outside'], user_initialize)
+current_position = player_position.room
 
-print("Awesome! Your hero, ",p.character,", is", p.room,".\nYour mission is to find the treasure chamber.")
+print("\nAwesome! Your hero,", user_initialize, "is in the", current_position)
+
+print("Your mission is to find the king's treasure.")
+
+print("- - - - - - - - - - - - - - - - - - - - - - \n")
+
 print("Please, choose your direction to continue")
-
-direction = int(input("[1] North  [2] South   [3] Est   [4] West    [9] Quit\n"))
-
 
 # Write a loop that:
 #
@@ -63,18 +66,53 @@ direction = int(input("[1] North  [2] South   [3] Est   [4] West    [9] Quit\n")
 #
 # If the user enters "q", quit the game.
 
-while not user == 9:
+direction = 0
+while direction == 0:
+    direction = input("[1] North  [2] South   [3] Est   [4] West    [9] Quit\n")
+    try:
     # user chooses North
-    if direction == 1:
-        print()
+        if direction == "1":
+            if player_position == Player (room['outside'], user_initialize):
+                player_position = Player (room['outside'].n_to, user_initialize)
+                print("You are in the", player_position.room)
+                direction = 0
+            elif player_position == Player (room['foyer'], user_initialize):
+                player_position = Player (room['foyer'].n_to, user_initialize)
+                print("You are in the", player_position.room)
+                direction = 0
+            elif player_position == Player (room['narrow'], user_initialize):
+                player_position = Player (room['narrow'].n_to, user_initialize)
+                print("You are in the", player_position.room)
+                direction = 0
+        # user chooses South
+        elif direction == "2":
+            if player_position == Player (room['foyer'], user_initialize):
+                player_position = Player (room['foyer'].s_to, user_initialize)
+                print("You are in the", player_position.room)
+                direction = 0
+            elif player_position == Player (room['overlook'], user_initialize):
+                player_position = Player (room['overlook'].s_to, user_initialize)
+                print("You are in the", player_position.room)
+                direction = 0
+            elif player_position == Player (room['treasure'], user_initialize):
+                player_position = Player (room['treasure'].s_to, user_initialize)
+                print("You are in the", player_position.room)
+                direction = 0
 
-    # user chooses South
-    if direction == 2:
-
-    # user chooses Est
-    if direction == 3:
-
-
-    # user chooses West
-    if direction == 4:
-
+        # user chooses Est
+        elif direction == "3" and player_position == Player (room['foyer'], user_initialize):
+            player_position = Player (room['foyer'].e_to, user_initialize)
+            print("You are in the", player_position.room)
+            direction = 0
+        # user chooses West
+        elif direction == "4" and player_position == Player (room['narrow'], user_initialize):
+            player_position = Player (room['narrow'].w_to, user_initialize)
+            print("You are in the", player_position.room)
+            direction = 0
+        elif direction == "9":
+            print("Thank you for playing with me! Take care.")
+        else:
+            print("Oh dear, you have hit a wall! Invalid selection. Please try again.")
+            direction = 0
+            
+        print("Please choose to continue...")
