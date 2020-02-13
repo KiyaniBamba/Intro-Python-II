@@ -14,5 +14,5 @@ class Room:
 
 r = Room("Foyer", "Dim light filters in from the south. Dusty passages run north and east.")
 
-print(r)
+# print(r)
 

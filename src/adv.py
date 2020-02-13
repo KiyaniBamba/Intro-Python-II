@@ -39,6 +39,19 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
+
+from player import Player
+
+#initialize user
+user_initialize = input ("Welcome on Adventure Game! \nTo start, enter the name of your character: ")
+p = Player('outside', user_initialize, ['Man', 'Black hair', '19 years old'])
+
+print("Awesome! Your hero, ",p.character,", is", p.room,".\nYour mission is to find the treasure chamber.")
+print("Please, choose your direction to continue")
+
+direction = int(input("[1] North  [2] South   [3] Est   [4] West    [9] Quit\n"))
+
+
 # Write a loop that:
 #
 # * Prints the current room name
@@ -49,3 +62,19 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+while not user == 9:
+    # user chooses North
+    if direction == 1:
+        print()
+
+    # user chooses South
+    if direction == 2:
+
+    # user chooses Est
+    if direction == 3:
+
+
+    # user chooses West
+    if direction == 4:
+

@@ -10,10 +10,11 @@ class Player:
         self.attributes = attributes
     def __str__(self):
         output = ''
-        output += self.character + 'is in the ' +  self.room
+        output += self.character + ' is in the ' +  self.room + ' room.'
         return output
 
 
 p = Player("Outside Cave Entrance", "Lorenzo", ["Man", "Black hair", "19 years old"])
-print(p)
+
+# print(p)
     
