@@ -71,7 +71,7 @@ while direction == 0:
     direction = input("[1] North  [2] South   [3] Est   [4] West    [9] Quit\n")
     try:
     # user chooses North
-        if direction == "1":
+        if direction == "n":
             if player_position == Player (room['outside'], user_initialize):
                 player_position = Player (room['outside'].n_to, user_initialize)
                 print("You are in the", player_position.room)
@@ -85,7 +85,7 @@ while direction == 0:
                 print("You are in the", player_position.room)
                 direction = 0
         # user chooses South
-        elif direction == "2":
+        elif direction == "s":
             if player_position == Player (room['foyer'], user_initialize):
                 player_position = Player (room['foyer'].s_to, user_initialize)
                 print("You are in the", player_position.room)
@@ -99,12 +99,12 @@ while direction == 0:
                 print("You are in the", player_position.room)
                 direction = 0
         #user chooses Est
-        elif direction == "3" and player_position == Player (room['foyer'], user_initialize):
+        elif direction == "e" and player_position == Player (room['foyer'], user_initialize):
             player_position = Player (room['foyer'].e_to, user_initialize)
             print("You are in the", player_position.room)
             direction = 0
         # user chooses West
-        elif direction == "4" and player_position == Player (room['narrow'], user_initialize):
+        elif direction == "w" and player_position == Player (room['narrow'], user_initialize):
             player_position = Player (room['narrow'].w_to, user_initialize)
             print("You are in the", player_position.room)
             direction = 0
@@ -113,4 +113,5 @@ while direction == 0:
         else:
             print("Oh dear, you have hit a wall! Invalid selection. Please try again.")
             direction = 0
-        print("Please choose to continue...")
+    except:
+        print('an error occured')
