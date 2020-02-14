@@ -3,14 +3,10 @@
 
 class Player:
     # constructor
-    def __init__(self, room, character):
+    def __init__(self, name, current_room):
         # attributes (room, name character)
-        self.room = room
-        self.character = character
-    def __str__(self):
-        output = ''
-        output = f'our hero is in the {self.room} room.'
-        return output
+        self.name = name
+        self.current_room = current_room 
 
 # move method
     def move(self, direction):
@@ -22,10 +18,4 @@ class Player:
             if next_room is not None:
                 self.current_room = next_room
             else:
-                print('You can not move in that direction!')
-
-
-p = Player("Outside Cave Entrance", "Lorenzo")
-
-# print(p)
-    
+                print('You can not move in that direction!')    

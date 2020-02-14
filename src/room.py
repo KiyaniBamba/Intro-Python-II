@@ -8,11 +8,7 @@ class Room:
         self.name = name
         self.description = description
 
-    def __str__(self):
-        output = ''
-        output += self.name + '. \nDescription: ' + self.description + '\n Choose your next move.'
-        return output
-
+        #  Direction
         self.n_to = None
         self.s_to = None
         self.e_to = None
@@ -29,9 +25,3 @@ class Room:
             return self.w_to
         else:
             return None
-
-
-r = Room("Foyer", "Dim light filters in from the south. Dusty passages run north and east.")
-
-# print(r)
-
