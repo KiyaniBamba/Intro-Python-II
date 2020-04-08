@@ -30,7 +30,7 @@ user = int(input("[1] Rock  [2] Paper   [3] Scissors    [9] Quit\n"))
 #gamplay loop
 while not user == 9:
     #user chooses ROCK
-    if user == 1:
+    if user == 4:
         if computer == 1:
             print("Computer chose rock...tie!")
             ties += 1

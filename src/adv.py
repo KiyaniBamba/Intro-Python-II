@@ -1,17 +1,17 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
 room = {
-    'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+    'outside':  Room("Outside Cave Entrance", "North of you, the cave mount beckons"),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
 passages run north and east."""),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm."""), 
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
 to north. The smell of gold permeates the air."""),
@@ -36,16 +36,27 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
-
+cardinal_directions = ['n', 's', 'e', 'w']
 # Make a new player object that is currently in the 'outside' room.
-
+player = Player('Tom', room['outside'])
 # Write a loop that:
+while True:
 #
 # * Prints the current room name
-# * Prints the current description (the textwrap module might be useful here).
-# * Waits for user input and decides what to do.
-#
-# If the user enters a cardinal direction, attempt to move to the room there.
-# Print an error message if the movement isn't allowed.
-#
-# If the user enters "q", quit the game.
+    print(player.current_room.name)
+    print('-----------------------')
+    # * Prints the current description (the textwrap module might be useful here).
+    print(player.current_room.description)
+    print('')
+    # * Waits for user input and decides what to do.
+    cmd = input('enter command ==> ')
+    #
+    # If the user enters a cardinal direction, attempt to move to the room there.
+    if cmd in cardinal_directions:
+        # attempt to move in the direction
+        # Print an error message if the movement isn't allowed.
+        player.move(cmd)
+    # If the user enters "q", quit the game.
+    elif cmd == 'q':
+        print('Goodbye!!')
+        break
